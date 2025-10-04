@@ -1,7 +1,12 @@
-.PHONY: dvd clean
+.PHONY: dvd pong clean
 
 dvd:
 	pushd ./dvd_screen; \
+	make run; \
+	popd
+
+pong:
+	pushd ./pong; \
 	make run; \
 	popd
 

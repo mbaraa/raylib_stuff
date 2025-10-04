@@ -11,3 +11,4 @@ make <thing>
 # Runnables
 
 - DVD Screen `make dvd`
+- Pong `make pong`
