@@ -12,3 +12,4 @@ make <thing>
 
 - DVD Screen `make dvd`
 - Pong `make pong`
+- Snake `make snake`

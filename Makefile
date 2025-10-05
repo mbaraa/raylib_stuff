@@ -10,6 +10,11 @@ pong:
 	make run; \
 	popd
 
+snake:
+	pushd ./snake; \
+	make run; \
+	popd
+
 clean:
 	for dir in `ls` ; do \
 		if [[ -d $$dir ]] ; then \
