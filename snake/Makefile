@@ -1,4 +1,4 @@
-.PHONY: setup build
+.PHONY: setup build run
 
 CC=gcc
 
