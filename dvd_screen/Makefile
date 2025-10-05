@@ -5,8 +5,8 @@ CC=gcc
 CFLAGS+=-Wall -Wmissing-declarations -Wshadow
 CFLAGS+=-Wstrict-prototypes -Wmissing-prototypes
 CFLAGS+=-Wpointer-arith -Wcast-qual -Wsign-compare
-CFLAGS+=-lsqlite3 -lm -lraylib -lGL -lpthread -ldl -lrt -lX11
-LDFLAGS+=-lsqlite3 -lm -lraylib -lGL -lpthread -ldl -lrt -lX11
+CFLAGS+=-lm -lraylib -lGL -lpthread -ldl -lrt -lX11
+LDFLAGS+=-lm -lraylib -lGL -lpthread -ldl -lrt -lX11
 
 BINARY_NAMR=dvd_screen
 

@@ -4,8 +4,8 @@ CC=gcc
 
 CFLAGS+=-Wall -Wshadow
 CFLAGS+=-Wpointer-arith -Wcast-qual -Wsign-compare
-CFLAGS+=-lsqlite3 -lm -lraylib -lGL -lpthread -ldl -lrt -lX11
-LDFLAGS+=-lsqlite3 -lm -lraylib -lGL -lpthread -ldl -lrt -lX11
+CFLAGS+=-lm -lraylib -lGL -lpthread -ldl -lrt -lX11
+LDFLAGS+=-lm -lraylib -lGL -lpthread -ldl -lrt -lX11
 
 BINARY_NAMR=pong
 
