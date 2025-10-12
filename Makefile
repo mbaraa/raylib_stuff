@@ -1,4 +1,4 @@
-.PHONY: dvd pong snake clean
+.PHONY: dvd pong snake clock clean
 
 dvd:
 	pushd ./dvd_screen; \
@@ -12,6 +12,11 @@ pong:
 
 snake:
 	pushd ./snake; \
+	make run; \
+	popd
+
+clock:
+	pushd ./clock; \
 	make run; \
 	popd
 
