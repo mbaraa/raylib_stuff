@@ -1,4 +1,4 @@
-.PHONY: dvd pong clean
+.PHONY: dvd pong snake clean
 
 dvd:
 	pushd ./dvd_screen; \
@@ -16,7 +16,7 @@ snake:
 	popd
 
 clean:
-	for dir in `ls` ; do \
+	@for dir in `ls` ; do \
 		if [[ -d $$dir ]] ; then \
 			pushd $$dir ; \
 			make clean ; \
