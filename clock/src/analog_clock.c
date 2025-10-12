@@ -56,11 +56,13 @@ void analog_clock_draw_hands(AnalogClock *clock) {
   analog_clock_draw_hand(clock, hand_width,
                          clock->size - (int)((float)clock->size * 0.2),
                          (float)current_time->tm_sec * 6.0f, BLACK);
-  analog_clock_draw_hand(clock, hand_width, (int)((float)clock->size * 0.4),
+  analog_clock_draw_hand(clock, hand_width,
+                         clock->size - (int)((float)clock->size * 0.4),
                          (float)current_time->tm_min * 6.0f +
                              (((float)current_time->tm_sec / 60) * 6),
                          BLACK);
-  analog_clock_draw_hand(clock, hand_width, (int)((float)clock->size * 0.5),
+  analog_clock_draw_hand(clock, hand_width,
+                         clock->size - (int)((float)clock->size * 0.5),
                          (float)(current_time->tm_hour % 12) * 30.0f +
                              (((float)current_time->tm_min / 60) * 30),
                          BLACK);
