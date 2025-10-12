@@ -10,9 +10,9 @@ Grid *grid_create(int cell_size, int cells_count_sqrt, Color empty_cell_color) {
   grid->cells = (Cell **)malloc(sizeof(Cell *) * cells_count_sqrt);
   grid->cells_count_sqrt = cells_count_sqrt;
   grid->empty_cell_color = empty_cell_color;
-  for (size_t i = 0; i < cells_count_sqrt; i++) {
+  for (int i = 0; i < cells_count_sqrt; i++) {
     grid->cells[i] = (Cell *)malloc(sizeof(Cell) * cells_count_sqrt);
-    for (size_t j = 0; j < cells_count_sqrt; j++) {
+    for (int j = 0; j < cells_count_sqrt; j++) {
       grid->cells[i][j] = (Cell){
           .color = empty_cell_color,
       };
@@ -23,7 +23,7 @@ Grid *grid_create(int cell_size, int cells_count_sqrt, Color empty_cell_color) {
 }
 
 void grid_destroy(Grid *grid) {
-  for (size_t i = 0; i < grid->cells_count_sqrt; i++) {
+  for (int i = 0; i < grid->cells_count_sqrt; i++) {
     free(grid->cells[i]);
     grid->cells[i] = NULL;
   }
@@ -35,8 +35,8 @@ void grid_destroy(Grid *grid) {
 }
 
 void grid_reset(Grid *grid) {
-  for (size_t i = 0; i < grid->cells_count_sqrt; i++) {
-    for (size_t j = 0; j < grid->cells_count_sqrt; j++) {
+  for (int i = 0; i < grid->cells_count_sqrt; i++) {
+    for (int j = 0; j < grid->cells_count_sqrt; j++) {
       grid->cells[i][j].color = grid->empty_cell_color;
     }
   }
@@ -50,17 +50,16 @@ Position grid_get_window_size(Grid *grid) {
 }
 
 void grid_draw(Grid *grid) {
-  for (size_t i = 0; i < grid->cells_count_sqrt; i++) {
-    for (size_t j = 0; j < grid->cells_count_sqrt; j++) {
-      Vector2 position = {
+  for (int i = 0; i < grid->cells_count_sqrt; i++) {
+    for (int j = 0; j < grid->cells_count_sqrt; j++) {
+      Rectangle rect = {
           .x = j * grid->cell_size,
           .y = i * grid->cell_size,
+          .width = grid->cell_size,
+          .height = grid->cell_size,
       };
-      Vector2 size = {
-          .x = grid->cell_size,
-          .y = grid->cell_size,
-      };
-      DrawRectangleV(position, size, grid->cells[i][j].color);
+      DrawRectangleRounded(rect, grid->cells[i][j].roundness, 10,
+                           grid->cells[i][j].color);
     }
   }
 }

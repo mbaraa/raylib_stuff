@@ -1,5 +1,7 @@
 #include "./snake.h"
 #include "./grid.h"
+#include <raylib.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 Snake *snake_new(Position initial_position, Cell head_cell, Cell body_cell) {
@@ -7,8 +9,6 @@ Snake *snake_new(Position initial_position, Cell head_cell, Cell body_cell) {
   snake->head = node_new(initial_position, head_cell);
   snake->tail = snake->head;
   snake->last_direction = LEFT;
-  snake->head_color = head_cell.color;
-  snake->body_color = body_cell.color;
   for (size_t i = 0; i < 3; i++) {
     initial_position.x += 1;
     snake->tail = node_add_next(snake->tail, initial_position, body_cell);
@@ -55,8 +55,8 @@ void snake_move(Snake *snake, Direction new_direction) {
   }
   snake->last_direction = new_direction;
 
-  Node *new_head = node_new(new_position, (Cell){snake->head_color});
-  snake->head->cell.color = snake->body_color;
+  Node *new_head = node_new(new_position, snake->head->cell);
+  snake->head->cell.color = snake->head->next->cell.color;
   new_head->next = snake->head;
   snake->head->prev = new_head;
   snake->head = new_head;

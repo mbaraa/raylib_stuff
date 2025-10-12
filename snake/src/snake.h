@@ -14,8 +14,6 @@ typedef struct Snake {
   Node *head;
   Node *tail;
   Direction last_direction;
-  Color head_color;
-  Color body_color;
 } Snake;
 
 Snake *snake_new(Position initial_position, Cell head_cell, Cell body_cell);

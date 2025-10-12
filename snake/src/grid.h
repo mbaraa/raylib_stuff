@@ -11,7 +11,7 @@ typedef struct Position {
 
 typedef struct Cell {
   Color color;
-  void *content;
+  float roundness;
 } Cell;
 
 typedef struct Grid {
