@@ -41,15 +41,27 @@ void snake_move(Snake *snake, Direction new_direction) {
   Position new_position = snake->head->position;
   switch (new_direction) {
   case UP:
+    if (snake->last_direction == DOWN) {
+      return;
+    }
     new_position.y--;
     break;
   case DOWN:
+    if (snake->last_direction == UP) {
+      return;
+    }
     new_position.y++;
     break;
   case RIGHT:
+    if (snake->last_direction == LEFT) {
+      return;
+    }
     new_position.x++;
     break;
   case LEFT:
+    if (snake->last_direction == RIGHT) {
+      return;
+    }
     new_position.x--;
     break;
   }

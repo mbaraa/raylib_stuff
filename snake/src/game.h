@@ -3,6 +3,7 @@
 
 #include "grid.h"
 #include "snake.h"
+#include <stdbool.h>
 
 typedef struct GameConfig {
   int speed;
@@ -10,6 +11,8 @@ typedef struct GameConfig {
   Cell snake_head_cell;
   Cell snake_body_cell;
   Color food_color;
+  Sound eat_sound;
+  Sound wall_hit_sound;
 } GameConfig;
 
 typedef struct Game {
@@ -18,11 +21,11 @@ typedef struct Game {
   Position last_food_position;
   int score;
   GameConfig config;
+  bool game_running;
 } Game;
 
 Game *game_new(Grid *grid, GameConfig config);
 void game_destroy(Game *game);
-void game_reset(Game *game);
 void game_update(Game *game);
 void game_draw(Game *game);
 

@@ -1,7 +1,6 @@
 #include "./grid.h"
 #include "./utils.h"
 #include <raylib.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 Grid *grid_create(int cell_size, int cells_count_sqrt, Color empty_cell_color) {
